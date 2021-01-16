@@ -83,9 +83,9 @@ const onButtonSubmit = () => {
         <CurrencyRow 
         currencies={currencies}
         selectedCurrency={toCurrency}
-        onChangeCurrency={e => setFromCurrency(e.target.value)}
+        onChangeCurrency={e => setToCurrency(e.target.value)}
         amount={toAmount}
-        onChangeAmount = {handleFromAmountChange}/>
+        onChangeAmount = {handleToAmountChange}/>
         </div>
         <div className="sec-row">
         </div>
