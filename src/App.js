@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import CurrencyRow from './Components/CurrencyRow/CurrencyRow'
+import CurrencyRow from './Components/CurrencyRow/CurrencyRow';
+import Link from './Components/CurrencyRow/Link'
 
 function App() {
   const [currencies, setCurrencies] = useState([]);
@@ -52,32 +53,25 @@ function handleToAmountChange(e) {
   setAmountOfOriginalCurrency(false)
 } 
 
-let money = Number.parseFloat(toAmount).toPrecision(3)
-
 const onButtonSubmit = () => {
-  setText(`Your ${fromAmount}${fromCurrency} is equall to ${money}${toCurrency} as of ${Date()}`)
+  setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
 }
+console.log(Object.values({text}).toString()==="")
+if (Object.values({text}).toString()==="") {
   return (
     <div className="Card">
       <h1>Currency Converter</h1>
         <div className="row">
-        <p className="label">Convert</p>
-        <CurrencyRow 
-        currencies={currencies}
-        selectedCurrency={fromCurrency}
-        onChangeCurrency={e => setFromCurrency(e.target.value)}
-        amount={fromAmount}
-        onChangeAmount = {handleFromAmountChange}
-        className="CurrencyRow"/>
-        {/* to
-        <CurrencySelector 
-        currencies={currencies}
-        selectedCurrency={toCurrency}
-        onChangeCurrency={e => setToCurrency(e.target.value)}
-        /> */}
+          <p className="label">Convert</p>
+          <CurrencyRow 
+            currencies={currencies}
+            selectedCurrency={fromCurrency}
+            onChangeCurrency={e => setFromCurrency(e.target.value)}
+            amount={fromAmount}
+            onChangeAmount = {handleFromAmountChange}
+            className="CurrencyRow"/>
         </div>
-  
-        
+
         <div className="row">
           <p>To</p>
         <CurrencyRow 
@@ -109,10 +103,62 @@ const onButtonSubmit = () => {
       >Exchange</button>
 
       <p id="text">
-      {text}
+        {text}
+      </p>
+    </div>
+  );  
+} else {
+  return (
+    <div className="Card">
+      <h1>Currency Converter</h1>
+        <div className="row">
+          <p className="label">Convert</p>
+          <CurrencyRow 
+            currencies={currencies}
+            selectedCurrency={fromCurrency}
+            onChangeCurrency={e => setFromCurrency(e.target.value)}
+            amount={fromAmount}
+            onChangeAmount = {handleFromAmountChange}
+            className="CurrencyRow"/>
+        </div>
+
+        <div className="row">
+          <p>To</p>
+        <CurrencyRow 
+        currencies={currencies}
+        selectedCurrency={toCurrency}
+        onChangeCurrency={e => setToCurrency(e.target.value)}
+        amount={toAmount}
+        onChangeAmount = {handleToAmountChange}/>
+        </div>
+        <div className="sec-row">
+        </div>
+
+        <div className="row">
+        <p id="exch">
+          Exchange Rate:
+        </p>
+         <div>
+          <input 
+            type="number" 
+            id="exchange-rate"
+            value={exchangeRate}
+          ></input>
+         </div>
+        </div>
+
+      <button
+      type="submit"
+      onClick={onButtonSubmit}
+      >Exchange</button>
+
+      <p id="text">
+        {text} <Link/>.
       </p>
     </div>
   );
+}
+  
 }
 
 export default App;

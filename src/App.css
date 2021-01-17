@@ -18,6 +18,7 @@ html, body {
 
 .Card {
   min-width: 25rem;
+  max-width: 30rem;
   border-radius: 1rem;
   width: 50%;
   margin: auto;
@@ -110,15 +111,13 @@ select:focus {
   color: #222; 
   outline: none;
 }
-#exchange-rate{
-  width: 13rem;
-}
+
 
 #text{
   font-size: 1rem;
   line-height: 1.25;
   margin-top: 0rem;
-
+  /* text-align: justify; */
 }
 
 @media (max-width: 600px) {
@@ -147,11 +146,39 @@ select:focus {
     
   }
 
-  #exch{
+  p>#exch{
     display: flex;
     justify-content: flex-start;
     margin-left: 0;
     padding-left: 0;
     text-align: left;
   }
+}
+a{
+  text-decoration: none;
+  color: rgb(15, 15, 155);
+}
+a:hover{
+  font-weight: bold;
+  font-size: 1.02rem;
+}
+
+#exchange-rate{
+  width: 13rem;
+}
+
+input#exchange-rate::-webkit-outer-spin-button,
+input#exchange-rate::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input#exchange-rate{
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(0, 0, 0);
+}
+
+input#exchange-rate:focus{
+  outline: none;
 }
