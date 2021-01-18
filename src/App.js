@@ -12,7 +12,7 @@ function App() {
   const [exchangeRate, setExchangeRate] = useState()
   const [text, setText] = useState('');
  
-
+  Number.parseFloat({amount}).toPrecision(3)
   let toAmount, fromAmount
     if (amountOfOriginalCurrency) {
       fromAmount = amount
@@ -43,10 +43,6 @@ useEffect(() => {
   }
 }, [fromCurrency, toCurrency])
 
-// useEffect(() => {
-//   setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
-// }, [fromAmount, toAmount, fromCurrency, toCurrency])
-
 function handleFromAmountChange(e) {
   setAmount(e.target.value)
   setAmountOfOriginalCurrency(true)
@@ -57,13 +53,12 @@ function handleToAmountChange(e) {
   setAmountOfOriginalCurrency(false)
 } 
 
-const a = document.querySelector('#text')
-// const onButtonSubmit = () => {
-//   setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
-// }
+const result = document.querySelector('#text');
+const btn = document.querySelector('button')
 
 const onButtonSubmit = () => {
-  a.style.display = "block";
+  result.style.display = "block";
+  btn.style.display = "none";
 }
 
 useEffect(() => {

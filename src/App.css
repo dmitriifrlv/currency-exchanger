@@ -116,7 +116,37 @@ select:focus {
 #text{
   font-size: 1rem;
   line-height: 1.25;
-  margin-top: 0rem;
+  margin-top: 1rem;
+  display: none;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(15, 15, 155);
+}
+a:hover{
+  font-weight: bold;
+  font-size: 1.02rem;
+}
+
+#exchange-rate{
+  width: 13rem;
+}
+
+input#exchange-rate::-webkit-outer-spin-button,
+input#exchange-rate::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input#exchange-rate{
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(0, 0, 0);
+}
+
+input#exchange-rate:focus{
+  outline: none;
 }
 
 @media (max-width: 600px) {
@@ -152,36 +182,4 @@ select:focus {
     padding-left: 0;
     text-align: left;
   }
-}
-a{
-  text-decoration: none;
-  color: rgb(15, 15, 155);
-}
-a:hover{
-  font-weight: bold;
-  font-size: 1.02rem;
-}
-
-#exchange-rate{
-  width: 13rem;
-}
-
-input#exchange-rate::-webkit-outer-spin-button,
-input#exchange-rate::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input#exchange-rate{
-  border: none;
-  color: transparent;
-  text-shadow: 0 0 0 rgb(0, 0, 0);
-}
-
-input#exchange-rate:focus{
-  outline: none;
-}
-
-#text{
-  display: none;
 }
