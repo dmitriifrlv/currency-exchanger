@@ -5,8 +5,8 @@ import Link from './Components/CurrencyRow/Link'
 
 function App() {
   const [currencies, setCurrencies] = useState([]);
-  const [fromCurrency, setFromCurrency] = useState(null);
-  const [toCurrency, setToCurrency] = useState(null);
+  const [fromCurrency, setFromCurrency] = useState(0);
+  const [toCurrency, setToCurrency] = useState(0);
   const [amount, setAmount] = useState(1)
   const [amountOfOriginalCurrency, setAmountOfOriginalCurrency] = useState(true);
   const [exchangeRate, setExchangeRate] = useState()
@@ -43,6 +43,10 @@ useEffect(() => {
   }
 }, [fromCurrency, toCurrency])
 
+// useEffect(() => {
+//   setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
+// }, [fromAmount, toAmount, fromCurrency, toCurrency])
+
 function handleFromAmountChange(e) {
   setAmount(e.target.value)
   setAmountOfOriginalCurrency(true)
@@ -53,10 +57,20 @@ function handleToAmountChange(e) {
   setAmountOfOriginalCurrency(false)
 } 
 
+const a = document.querySelector('#text')
+// const onButtonSubmit = () => {
+//   setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
+// }
+
 const onButtonSubmit = () => {
-  setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
+  a.style.display = "block";
 }
-console.log(Object.values({text}).toString()==="")
+
+useEffect(() => {
+  setText(`${fromAmount}${fromCurrency} equals to ${toAmount}${toCurrency} as of ${Date()} according to the rate published by the`)
+}, [fromAmount, toAmount, fromCurrency, toCurrency])
+
+
 if (Object.values({text}).toString()==="") {
   return (
     <div className="Card">
